@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Calculate;
-use PHPUnit\Framework\Error\Error;
-use PHPUnit\Runner\Exception;
+
+use Prophecy\Exception\InvalidArgumentException;
 
 /**
  * Class Factorial
@@ -24,7 +24,7 @@ class Factorial
     function __construct(int $number)
     {
         if($number < 0){
-            throw new Exception('Number can\'t be below zero');
+            throw new InvalidArgumentException('Number can\'t be below zero');
         }
         $this->number = $number;
     }

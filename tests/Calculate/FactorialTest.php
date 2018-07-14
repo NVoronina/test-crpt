@@ -5,6 +5,7 @@ namespace Test;
 use PHPUnit\Framework\TestCase;
 use App\Calculate\Factorial;
 use PHPUnit\Runner\Exception;
+use Prophecy\Exception\InvalidArgumentException;
 
 class FactorialTest extends TestCase
 {
@@ -62,7 +63,7 @@ class FactorialTest extends TestCase
 
     public function testCalculateZeroNotValid(): void
     {
-        $this->expectException(Exception::class);
+        $this->expectException(InvalidArgumentException::class);
         new Factorial(-5);
     }
 }
