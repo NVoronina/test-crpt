@@ -1,0 +1,16 @@
+{
+  "name": "natalia/crpt_test",
+  "authors": [
+    {
+      "name": "Natali Voronina",
+      "email": "natalibriks87@gmail.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "7"
+  },
+  "scripts": {
+    "test": "phpunit --bootstrap ./tests/index.php tests"
+  }
+}
