@@ -4,6 +4,7 @@ namespace Test;
 
 use PHPUnit\Framework\TestCase;
 use App\Calculate\Factorial;
+use PHPUnit\Runner\Exception;
 
 class FactorialTest extends TestCase
 {
@@ -41,7 +42,7 @@ class FactorialTest extends TestCase
         );
     }
 
-    public function testCalculateZeroLast(): void
+    public function testCalculateZeroFour(): void
     {
         $factorial = new Factorial(4);
         $this->assertEquals(
@@ -50,12 +51,18 @@ class FactorialTest extends TestCase
         );
     }
 
-    public function testCalculateZeroBig(): void
+    public function testCalculateZeroFive(): void
     {
         $factorial = new Factorial(200);
         $this->assertEquals(
             49,
             $factorial->calculateZero()
         );
+    }
+
+    public function testCalculateZeroNotValid(): void
+    {
+        $this->expectException(Exception::class);
+        new Factorial(-5);
     }
 }

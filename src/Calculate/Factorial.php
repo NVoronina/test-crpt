@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Calculate;
+use PHPUnit\Framework\Error\Error;
+use PHPUnit\Runner\Exception;
 
 /**
  * Class Factorial
@@ -21,6 +23,9 @@ class Factorial
 
     function __construct(int $number)
     {
+        if($number < 0){
+            throw new Exception('Number can\'t be below zero');
+        }
         $this->number = $number;
     }
 
@@ -51,7 +56,7 @@ class Factorial
     {
         $res = -1;
         $tmp = 1;
-        for($i = 1; $tmp >= 1; $i++ ){
+        for($i = 1; $tmp >= 1; $i++){
             $res += $tmp;
             $tmp = $this->number / 5**$i;
         }
